@@ -1,0 +1,16 @@
+{
+  "name": "c313-project_node",
+  "version": "1.0.0",
+  "description": "\"A self service app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andres Rodriguez",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "pg": "^7.11.0"
+  }
+}
