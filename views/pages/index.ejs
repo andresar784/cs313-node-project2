@@ -2,12 +2,38 @@
 <html>
 <head>
 	<% include ../partials/header.ejs %>
-	<title>Home Page</title>
+	<style>
+		h1{
+			text-align: center;
+			color:lightskyblue;
+			font-size: 60px;
+		}
+		
+		body {
+			background-color: coral;
+			}
+		.block {
+		  display: block;
+		  width:100%;
+		  border: none;
+		  background-color: #4CAF50;
+		  color: white;
+		  padding: 60px 25px;
+		  font-size: 50px;
+		  cursor: pointer;
+		  text-align: center;
+		}
+		
+		.block:hover {
+		  background-color: #ddd;
+		  color: black;
+		}
+	</style>
 </head>
 <body>
-	<h1>This is the home page.</h1>
-
-	<p>(This is an ejs...)</p>
-	<% include ../partials/header.ejs %>
+	<h1>Movies on touch</h1>
+	<button class="block">Movies on billboard</button><br>
+	<button class="block">Buy a ticket</button>
+	
 </body>
 </html>
