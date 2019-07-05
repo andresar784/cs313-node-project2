@@ -31,20 +31,28 @@ app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 function showmovies(){
         
-        var sql = "SELECT * FROM movie";
+        var sql = "SELECT year, movie_name, category FROM movie";
 
-        pool.query(sql, function(err, result) {
+        pool.query(sql, function(err, db_result) {
         // If an error occurred...
         if (err) {
         console.log("Error in query: ")
         console.log(err);
         }
-        var movies_r = [];
+        else{
+                var results = {
+                success:true,
+                list:db_result.rows
+        };
+        }                              
+        for (var i = 0; i < results.length; i++) {
+                var movie = list[i];
 
+        $("#ulMovies").append("<li>" + movie.movie_name + " " + movie.category + ":" + movie.year + "</li>");
+        }
         
-
         // Log this to the console for debugging purposes.
         console.log("Back from DB with result:");
-        console.log(result.rows);
+        console.log(db_result.rows);
 });     
 }

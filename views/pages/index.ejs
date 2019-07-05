@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<% include ../partials/header.ejs %>
 	<style>
 		h1{
@@ -33,7 +34,7 @@
 <body>
 	<h1>Movies on touch</h1>
 	<form action="/showmovies" method="GET">
-	<button type="submit" class="block" >Movies on billboard</button><br>
+	<button type="submit" class="block" onclick="showMovies()" >Movies on billboard</button><br>
 	</form>
 	<button class="block">Buy a ticket</button>
 	
