@@ -3,40 +3,27 @@
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<% include ../partials/header.ejs %>
-	<style>
-		h1{
-			text-align: center;
-			color:lightskyblue;
-			font-size: 60px;
-		}
-		
-		body {
-			background-color: coral;
-			}
-		.block {
-		  display: block;
-		  width:100%;
-		  border: none;
-		  background-color: #4CAF50;
-		  color: white;
-		  padding: 60px 25px;
-		  font-size: 50px;
-		  cursor: pointer;
-		  text-align: center;
-		}
-		
-		.block:hover {
-		  background-color: #ddd;
-		  color: black;
-		}
-	</style>
+	meta charset="utf-8">
+    <title>Weather and map service</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<h1>Movies on touch</h1>
-	<form action="/showmovies" method="GET">
-	<button type="submit" class="block" onclick="showMovies()" >Movies on billboard</button><br>
-	</form>
-	<button class="block">Buy a ticket</button>
+	<div class="container">
+		<fieldset>
+			<form action="/" method="post">
+				<input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+				<input type="submit" class="ghost-button" value="Get Weather">
+				</form>
+				<% if(weather !== null){ %>
+				<p><%= weather %></p>
+				<% } %>
+				<% if(error !== null){ %>
+					<p><%= error %></p>
+				<% } %>
+		</fieldset>
+	</div>
+	
 	
 </body>
 </html>
