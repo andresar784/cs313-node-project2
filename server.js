@@ -2,6 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 const app = express()
+var jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
+var $ = require("jquery")(window);
 
 //const connectionString = process.env.DATABASE_URL;
 

@@ -3,9 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>Weather in your city</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 	  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-    <script src="script.js"></script> 
+    
+    <script>
+        $(document).ready(function(){
+          $("#sh").click(function(){
+            let lat = -31.474498102;
+            let lng = -55.240165706;
+            var uluru = {lat: lat, lng: lng};
+             // The map, centered at Uluru
+            var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 10, center: uluru});
+          // The marker, positioned at Uluru
+          var marker = new google.maps.Marker({position: uluru, map: map});
+        });
+  });
+ </script>
 </head>
   <body>
     <div class="container">
@@ -22,15 +37,16 @@
         <% if(error !== null){ %>
           <p><%= error %></p>
     <% } %>
-    <input name="lat" type="text" class="ghost-input" placeholder="Enter the latitude" required>
-    <input name="long" type="text" class="ghost-input" placeholder="Enter the longitude" required>
-    <input type="submit" class="ghost-button" onclick="initMap()" value="Get Map">
-    <p id="map"></p>	
-	  </fieldset>
-	  
+    <input name="lat" type="text" class="ghost-input" placeholder="Enter the lattitude" required>
+    <input name="lng" type="text" class="ghost-input" placeholder="Enter the longitude" required>
+    <input id="sh" type="button" class="ghost-button"  onclick="initMap()" value="Get the map">
+     </fieldset>
+    <div id="map"></div>	
+	 
+    
 	</div>
-	<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key='AIzaSyDBAR3V4Bmxv4CwmkrSZaF6bDmdj0UN_aE'&callback=initMap">
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBAR3V4Bmxv4CwmkrSZaF6bDmdj0UN_aE&callback=initMap">
   </script>
   </body>
 </html>
