@@ -10,11 +10,10 @@
     <script>
         $(document).ready(function(){
           $("#sh").click(function(){
-            var lat = $("#lat").val();
+            //var lat = $("#lat").val();
            
-            var lng = $("#lng").val();
-            alert(lat);
-            var uluru = {lat: lat, lng: lng};
+            //var lng = $("#lng").val();
+            var uluru = {lat: $("#lng").val(), lng:  $("#lat").val()};
              // The map, centered at Uluru
             var map = new google.maps.Map(
              document.getElementById('map'), {zoom: 15, center: uluru});
