@@ -10,14 +10,17 @@
     <script>
         $(document).ready(function(){
           $("#sh").click(function(){
-            //var lat = $("#lat").val();
-            //var lng = $("#lng").val();
-            var uluru = {lat: -30.9 , lng: -55};
+            var lat = $("#lat").val();
+            var lng = $("#lng").val();
+            //var uluru = {lat: -30.9 , lng: -55};
              // The map, centered at Uluru
             var map = new google.maps.Map(
-             document.getElementById('map'), {zoom: 15, center: uluru});
+             document.getElementById('map'), {zoom: 10, 
+              center : {lat: lat, 
+                        lng: lng}
+            });
              // The marker, positioned at Uluru
-             var marker = new google.maps.Marker({position: uluru, map: map});
+             //var marker = new google.maps.Marker({position: uluru, map: map});
         });
   });
  </script>
