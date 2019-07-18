@@ -41,7 +41,7 @@ app.post('/', function (req, res) {
         res.render('index', {weather: null, error: 'Error, please try again'});
       } else {
         let weatherText = `In ${weather.name} we have ${weather.main.temp} degrees, the presure is ${weather.main.pressure}.
-        The coordinates of ${weather.name} are, longitude: ${weather.coord.lon} and latitude: ${weather.coord.lat}, to render a map, please copy and paste longitude and
+        The coordinates of ${weather.name} are, longitude: ${weather.coord.lon} and latitude: ${weather.coord.lat}, to show a map, please copy and paste longitude and
         latitude and get the map of the city!`;
         res.render('index', {weather: weatherText, error: null});
       }
