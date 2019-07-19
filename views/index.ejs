@@ -6,24 +6,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 	  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+            
     
-    <script>
-        $(document).ready(function(){
-          $("#sh").click(function(){
-            var lat = -25.3;//$("#lat").val();
-            var lng = -55.3//$("#lng").val();
-            //var uluru = {lat: -30.9 , lng: -55};
-             // The map, centered at Uluru
-            var map = new google.maps.Map(
-             document.getElementById('map'), {zoom: 10, 
-              center : {lat: lat, 
-                        lng: lng}
-            });
-             // The marker, positioned at Uluru
-             //var marker = new google.maps.Marker({position: uluru, map: map});
-        });
-  });
- </script>
 </head>
   <body>
     <div class="container">
@@ -53,5 +37,27 @@
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBAR3V4Bmxv4CwmkrSZaF6bDmdj0UN_aE&callback=initMap">
   </script>
+  <script>
+    $(document).ready(function(){
+      $("#sh").click(function(){
+        // this work!!!!
+        var lat = 56;
+        alert("the lat declared previuously " + lat); // shows the correct value
+        var lng = -58; 
+        alert("the lng declared previuously " + lng); // also show the correct value
+        // this dont work!!!
+        var lat_1 = $("#lat").val();
+        alert("The lat inserted by you " + lat_1);
+        var lng_1 = $("#lng").val(); 
+        alert("The lng inserted by you " + lng_1);
+        var uluru = {lat: lat_1, lng: lng_1};
+         // The map, centered at Uluru
+         var map = new google.maps.Map(document.getElementById('map'), 
+         {zoom: 10, center: uluru});
+         // The marker, positioned at Uluru
+         var marker = new google.maps.Marker({position: uluru, map: map});
+    });
+});
+</script>
   </body>
 </html>
