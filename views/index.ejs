@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Weather in your city</title>
+    <script src="script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 	  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
@@ -27,40 +28,29 @@
     <form>
     <input id="lat" type="text" class="ghost-input" value="" placeholder="Enter the lattitude" required>
     <input id="lng" type="text" class="ghost-input" value="" placeholder="Enter the longitude" required>
-    <input id="sh" type="button" class="ghost-button" onclick="initMap()" value="Get the map">
+    <input id="sh" type="button" class="ghost-button"  value="Get the map">
   </form>
      </fieldset>
     <div id="map"></div>	
-	 
-    
-	</div>
+	 </div>
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBAR3V4Bmxv4CwmkrSZaF6bDmdj0UN_aE&callback=initMap">
   </script>
   <script>
-     $(document).ready(function(){
-      $("#sh").click(function(){
-        // this work!!!!
-        //var lat = 56;
-        //alert("the lat declared previuously " + lat); // shows the correct value
-        //var lng = -58; 
-        //alert("the lng declared previuously " + lng); // also show the correct value
-        // this dont work!!!
-        
-        var lat_1 = $("#lat").val();
-        //alert("The lat inserted by you " + lat_1);
-        var lng_1 = $("#lng").val(); 
-        //alert("The lng inserted by you " + lng_1);
-        var lat_2 = parseFloat(lat_1);
-        var lng_2 = parseFloat(lng_1);
-        var uluru = {lat: lat_2, lng: lng_2};
-         // The map, centered at Uluru
-         var map = new google.maps.Map(document.getElementById('map'), 
-         {zoom: 12, center: uluru});
-         // The marker, positioned at Uluru
-         var marker = new google.maps.Marker({position: uluru, map: map});
-    });
-      });
-</script>
+  $(document).ready(function(){
+    $("#sh").click(function(){
+      var lat = $("#lat").val();
+      var lng = $("#lng").val();
+      var lat_1 = parseFloat(lat);
+      var lng_1 = parseFloat(lng); 
+      var uluru = {lat: lat_1, lng: lng_1};
+       // The map, centered at Uluru
+       var map = new google.maps.Map(document.getElementById('map'), 
+       {zoom: 12, center: uluru});
+       // The marker, positioned at Uluru
+       var marker = new google.maps.Marker({position: uluru, map: map});
+  });
+});
+  </script>
   </body>
 </html>
